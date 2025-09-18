@@ -7,9 +7,9 @@ print(f"Python version: {sys.version}")
 # 1. Qiskit 기본 import 테스트
 try:
     import qiskit
-    print(f"✅ Qiskit version: {qiskit.__version__}")
+    print(f"Qiskit version: {qiskit.__version__}")
 except ImportError as e:
-    print(f"❌ Qiskit import failed: {e}")
+    print(f"Qiskit import failed: {e}")
     exit(1)
 
 # 2. 필수 모듈 import 테스트
@@ -17,9 +17,9 @@ try:
     from qiskit import QuantumCircuit, transpile
     from qiskit_aer import AerSimulator
     from qiskit.visualization import plot_histogram
-    print("✅ All required modules imported successfully")
+    print("All required modules imported successfully")
 except ImportError as e:
-    print(f"❌ Module import failed: {e}")
+    print(f"Module import failed: {e}")
     exit(1)
 
 # 3. Bell State 회로 생성 테스트
@@ -42,7 +42,7 @@ try:
     print(f"Number of qubits: {qc.num_qubits}")
     
 except Exception as e:
-    print(f"❌ Circuit creation failed: {e}")
+    print(f"Circuit creation failed: {e}")
     exit(1)
 
 # 4. 시뮬레이터 테스트
@@ -59,7 +59,7 @@ try:
     result = job.result()
     counts = result.get_counts(compiled_circuit)
     
-    print("✅ Simulation completed successfully")
+    print("Simulation completed successfully")
     print(f"Measurement results: {counts}")
     
     # Bell state 검증 (00과 11만 나와야 함)
@@ -68,10 +68,10 @@ try:
     expected_states = ['00', '11']
     
     if all(state in expected_states for state in actual_qubit_states):
-        print("✅ Bell state verification passed")
+        print("Bell state verification passed")
         print(f"   Qubit states: {actual_qubit_states}")
     else:
-        print(f"⚠️  Unexpected states found: {actual_qubit_states}")
+        print(f"Unexpected states found: {actual_qubit_states}")
     
     # 결과 분석
     total_shots = sum(counts.values())
@@ -80,7 +80,7 @@ try:
         print(f"   State {state}: {count} times ({percentage:.1f}%)")
         
 except Exception as e:
-    print(f"❌ Simulation failed: {e}")
+    print(f"Simulation failed: {e}")
     exit(1)
 
 # 5. 시각화 테스트 (Jupyter에서만 작동)
@@ -90,10 +90,10 @@ try:
     print("Circuit diagram:")
     print(qc.draw())
     
-    print("✅ Text visualization successful")
-    print("📝 Note: For visual plots, use Jupyter Notebook")
+    print("Text visualization successful")
+    print("Note: For visual plots, use Jupyter Notebook")
     
 except Exception as e:
-    print(f"❌ Visualization failed: {e}")
+    print(f"Visualization failed: {e}")
 
-print("\n🎉 All tests completed! Qiskit installation is working properly.")
+print("\n All tests completed! Qiskit installation is working properly.")
